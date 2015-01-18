@@ -1,7 +1,7 @@
 $('#submit-btn').click(function() {
-	alert('pressed button');
+	console.log('pressed button');
 	
-	$.ajax('/api/open', {
+	$.ajax('/api/open-attempt', {
 	  type: "POST",
 	  data: 'open-door',
 	  dataType: 'string',
@@ -13,5 +13,5 @@ $('#submit-btn').click(function() {
 	  }
 	});
 	
-	alert('after ajax');
+	console.log('after ajax request');
 });

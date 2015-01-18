@@ -3,12 +3,22 @@
  */
 
 module.exports = function(app){
-	app.get('/open', function(req,res){
-		res.render('open.ejs');
+	app.get('/', function(req,res){
+		res.render('index.ejs');
 	});
 	
 	app.post('/api/open', function(req,res){
-		res.send('this is a reply from the server!');
+		res.send({ message : 'this is a reply from the server!' });
+		
+		try {
+			var spawn = require("child_process").spawn;
+			var process = spawn('python', ["scripts/open-door.py"]);
+		} catch (e) {
+			print e;
+			return e;
+		}
+		
+		console.log('Door opening. ');
 	});
 	
 	app.get('/register', function(req,res){
@@ -16,6 +26,6 @@ module.exports = function(app){
 	});
 	
 	app.get('/*', function(req, res){
-		res.redirect('/open');
+		res.redirect('/');
 	});
 };

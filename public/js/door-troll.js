@@ -1,10 +1,12 @@
 $('#submit-btn').click(function() {
 	console.log('pressed button');
 	
+	alert('password: ' + $('#pass-field').text);
+	
 	$.ajax('/api/open-attempt', {
-	  type: "POST",
-	  data: 'open-door',
-	  dataType: 'string',
+	  type: 'post',
+	  data: 'test',
+	  contentType: 'string',
 	  success: function(result) {
 		alert('success: ' + result.message);
 	  },

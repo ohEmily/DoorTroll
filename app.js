@@ -18,8 +18,9 @@ app.use("/fonts", express.static(__dirname + "/public/fonts"));
 app.use("/img", express.static(__dirname + "/public/img"));
 
 /* linking */
+var interfacer = require('./interfacer');
 var controller = require('./controller'); // functions controlling microcontroller
-require('./routes')(app, controller); // sets up endpoints
+require('./routes')(app, controller, interfacer); // sets up endpoints
 
 /** Start Server */
 http.createServer(app).listen(app.get('port'), function () {

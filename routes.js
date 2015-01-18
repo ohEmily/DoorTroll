@@ -2,15 +2,20 @@
  * It sets up the application endpoints/routes.
  */
 
-module.exports = function(app, controller){
+module.exports = function(app, controller, interfacer){
 	app.get('/', function(req,res){
 		res.render('index.ejs');
 	});
 	
-	app.post('/api/open-attempt', function(req,res){
-		controller.open_door();
+	app.post('/api/open-attempt', function(req, res){
+	
+		var file = 'index.html';
+		var password = req;
 		
-		text = 'Door opening. '
+		if (interfacer.is_user(file, password))
+			controller.open_door();
+		
+		var text = 'Door opening. '
 		console.log(text);
 		res.send({ message : text });	
 	});

@@ -3,7 +3,7 @@ var port = 4000;
 /** Set up Express with module dependencies */
 var express = require('express'),
 	http = require('http');
-	
+
 var app = module.exports = express();
 
 /** Configuration */
@@ -14,7 +14,7 @@ app.set('port', process.env.PORT || port);
 // serve all asset files from necessary directories
 app.use("/js", express.static(__dirname + "/public/js"));
 app.use("/css", express.static(__dirname + "/public/css"));
-app.use("/partials", express.static(__dirname + "/public/partials"));
+app.use("/fonts", express.static(__dirname + "/public/fonts"));
 app.use("/img", express.static(__dirname + "/public/img"));
 
 /* linking */

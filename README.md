@@ -1,6 +1,6 @@
 # Doorman
 ## Winter PennApps 2015
-Open your door from your phone. This web service allows a user to enter a passcode in order to open the door.
+Open your door from your phone. This web service allows a user to enter a passcode in order to open a door.
 
 ### Stack
  * Node

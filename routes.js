@@ -8,8 +8,6 @@ module.exports = function(app){
 	});
 	
 	app.post('/api/open', function(req,res){
-		res.send({ message : 'this is a reply from the server!' });
-		
 		try {
 			var spawn = require("child_process").spawn;
 			var process = spawn('python', ["scripts/open-door.py"]);
@@ -17,7 +15,9 @@ module.exports = function(app){
 			return e;
 		}
 		
-		console.log('Door opening. ');
+		text = 'Door opening. '
+		console.log(text);
+		res.send({ message : text });	
 	});
 	
 	app.get('/register', function(req,res){

@@ -14,7 +14,6 @@ module.exports = function(app){
 			var spawn = require("child_process").spawn;
 			var process = spawn('python', ["scripts/open-door.py"]);
 		} catch (e) {
-			print e;
 			return e;
 		}
 		
